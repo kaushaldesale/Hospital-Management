@@ -1,0 +1,43 @@
+﻿@model Hospital_Managment_Model_Layer.Master_Model.Department_Information_Model
+<html lang="en">
+<body class="bg-primary">
+    @using (Html.BeginForm("SaveOrUpdate", "Department_Master", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-row ">
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1 ">Organization Name<small style="color:red">*</small></label>
+                    @Html.HiddenFor(m => m.department_id)
+                    @Html.DropDownListFor(m => m.hospital_id, new SelectList(ViewBag.hospital_name, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled class_suppler_id", id = "id_suppler_id", tabindex = "1", autofocus = "autofocus" })
+                    @Html.ValidationMessageFor(m => m.hospital_id, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1 ">Department Name <small style="color:red">*</small></label>
+                    @Html.TextBoxFor(m => m.department_name, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+                    @Html.ValidationMessageFor(m => m.department_name, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1 ">Department Description</label>
+                    @Html.TextAreaFor(m => m.deparment_description, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-4 mb-0 form-actions">
+            <button type="submit" class="btn btn-dark" id="btnsubmit"> Save Record </button>
+        </div>
+    }
+
+</body>
+
+</html>
+
+
+
+

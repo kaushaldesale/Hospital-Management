@@ -1,0 +1,138 @@
+﻿@model Hospital_Managment_Model_Layer.Master_Model.Employee_Information_Model
+<html lang="en">
+
+<body class="bg-primary">
+    @using (Html.BeginForm("SaveOrUpdate", "Employee_Master", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-row ">
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1 ">Employee Code</label>
+                    @Html.HiddenFor(m => m.employee_id)
+                    @Html.TextBoxFor(m => m.employee_code, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Title <small style="color:red">*</small></label>
+                    @Html.DropDownListFor(m => m.employee_title, new SelectList(ViewBag.employee_title, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled text-uppercase", tabindex = "1", autofocus = "autofocus" })
+                    @Html.ValidationMessageFor(m => m.employee_title, "", new { @class = "text-danger  " })
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Gender <small style="color:red">*</small></label>
+                    @Html.DropDownListFor(m => m.employee_gender, new SelectList(ViewBag.employee_gender, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled text-uppercase", tabindex = "2" })
+                    @Html.ValidationMessageFor(m => m.employee_gender, "", new { @class = "text-danger  " })
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Employee Name <small style="color:red">*</small></label>
+                    @Html.TextBoxFor(m => m.employee_name, new { @class = "form-control form-control-sm sm-2 border border-dark disabled ", tabindex = "3" })
+                    @Html.ValidationMessageFor(m => m.employee_name, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Designation <small style="color:red">*</small></label>
+                    @Html.DropDownListFor(m => m.employye_designation, new SelectList(ViewBag.employye_designation, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled text-uppercase", tabindex = "4" })
+                    @Html.ValidationMessageFor(m => m.employye_designation, "", new { @class = "text-danger  " })
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Department<small style="color:red">*</small></label>
+                    @Html.DropDownListFor(m => m.employee_department, new SelectList(ViewBag.employee_department, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled text-uppercase", tabindex = "5" })
+                    @Html.ValidationMessageFor(m => m.employee_department, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">PAN No<small style="color:red"></small></label>
+                    @Html.TextBoxFor(m => m.employee_pan, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "8" })
+                    @Html.ValidationMessageFor(m => m.employee_pan, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Adhar No<small style="color:red" style="color:red"></small></label>
+                    @Html.TextBoxFor(m => m.employee_adharchard, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "9" })
+                    @Html.ValidationMessageFor(m => m.employee_adharchard, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Mobile No<small style="color:red">*</small></label>
+                    @Html.TextBoxFor(m => m.employee_mobile, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "10" })
+                    @Html.ValidationMessageFor(m => m.employee_mobile, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Alternet Contact No</label>
+                    @Html.TextBoxFor(m => m.employee_alternet_no, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "11" })
+                    @Html.ValidationMessageFor(m => m.employee_alternet_no, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Email Id</label>
+                    @Html.TextBoxFor(m => m.employee_email_id, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "12" })
+                    @Html.ValidationMessageFor(m => m.employee_email_id, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Bank Name</label>
+                    @Html.DropDownListFor(m => m.employee_bank_name, new SelectList(ViewBag.employee_bank_name, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled text-uppercase", tabindex = "13" })
+                    @Html.ValidationMessageFor(m => m.employee_bank_name, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">IFSC Code</label>
+                    @Html.TextBoxFor(m => m.employee_ifsc_code, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "14" })
+                    @Html.ValidationMessageFor(m => m.employee_ifsc_code, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Account Number</label>
+                    @Html.TextBoxFor(m => m.employee_account_no, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "15" })
+                    @Html.ValidationMessageFor(m => m.employee_account_no, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Address  <small style="color:red">*</small></label>
+                    @Html.TextAreaFor(m => m.employee_Address, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "16" })
+                    @Html.ValidationMessageFor(m => m.employee_Address, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group ">
+                    <label class="small mb-1">Address 1 </label>
+                    @Html.TextAreaFor(m => m.employee_Address1, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "17" })
+                    @Html.ValidationMessageFor(m => m.employee_Address1, "", new { @class = "text-danger  " })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mt-4 mb-0 form-actions">
+            <button type="submit" class="btn btn-dark" id="btnsubmit" tabindex="18"> Save Record </button>
+        </div>
+    }
+
+</body>
+
+</html>

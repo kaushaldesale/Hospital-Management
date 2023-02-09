@@ -1,0 +1,73 @@
+﻿@model Hospital_Managment_Model_Layer.Master_Model.Item_Information_Model
+<html lang="en">
+<body class="bg-primary">
+    @using (Html.BeginForm("SaveOrUpdate", "Department_Master", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-row ">
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Item Type<small style="color:red">*</small></label>
+                @Html.HiddenFor(m => m.item_id)
+                @Html.DropDownListFor(m => m.item_type, new SelectList(ViewBag.item_type, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled class_suppler_id", id = "id_suppler_id", tabindex = "1", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(m => m.item_type, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Item Name <small style="color:red">*</small></label>
+                @Html.TextBoxFor(m => m.item_name, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+                @Html.ValidationMessageFor(m => m.item_name, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Manufacturer Name <small style="color:red">*</small></label>
+                @Html.TextBoxFor(m => m.item_name, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "3" })
+                @Html.ValidationMessageFor(m => m.item_name, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Item Description</label>
+                @Html.TextAreaFor(m => m.item_description, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "4" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Item First Unit <small style="color:red">*</small></label>
+                @Html.DropDownListFor(m => m.item_first_unit, new SelectList(ViewBag.item_first_unit, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled class_suppler_id", id = "id_suppler_id", tabindex = "5", autofocus = "autofocus" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Item Second Unit <small style="color:red">*</small></label>
+                @Html.DropDownListFor(m => m.item_second_unit, new SelectList(ViewBag.item_first_unit, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled class_suppler_id", id = "id_suppler_id", tabindex = "6", autofocus = "autofocus" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">1st Conversion<small style="color:red">*</small></label>
+                @Html.TextBoxFor(m => m.item_conversion_first_factor, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "7" })
+                @Html.ValidationMessageFor(m => m.item_name, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">2nd Conversion<small style="color:red">*</small></label>
+                @Html.TextBoxFor(m => m.item_conversion_second_factor, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "8" })
+                @Html.ValidationMessageFor(m => m.item_name, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+
+    </div>
+        <div class="form-group mt-4 mb-0 form-actions">
+            <button type="submit" class="btn btn-dark" id="btnsubmit"> Save Record </button>
+        </div>
+    }
+
+</body>
+
+</html>

@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Db_Hospital_ManagmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="a_m_lookup_hedar">
+          <Key>
+            <PropertyRef Name="lookup_id" />
+          </Key>
+          <Property Name="lookup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_id" Type="int" />
+          <Property Name="global_id" Type="int" />
+          <Property Name="lookup_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="lookup_description" Type="nvarchar" MaxLength="50" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="active_flag" Type="bit" />
+        </EntityType>
+        <EntityType Name="a_m_lookup_line">
+          <Key>
+            <PropertyRef Name="line_id" />
+          </Key>
+          <Property Name="line_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_id" Type="int" />
+          <Property Name="gloabl_id" Type="int" />
+          <Property Name="lookup_id" Type="int" />
+          <Property Name="line_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="line_description" Type="nvarchar" MaxLength="50" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="updated_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="m_department_information">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_start_date" Type="datetime" />
+          <Property Name="department_code" Type="nvarchar" MaxLength="20" />
+          <Property Name="department_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="deparment_address" Type="nvarchar" MaxLength="500" />
+          <Property Name="deparment_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="hospital_id" Type="bigint" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="updated_by" Type="int" />
+        </EntityType>
+        <EntityType Name="m_designation_information">
+          <Key>
+            <PropertyRef Name="designation_id" />
+          </Key>
+          <Property Name="designation_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="designation_code" Type="nvarchar" MaxLength="20" />
+          <Property Name="designation_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="designation_qualification" Type="nvarchar" MaxLength="150" />
+          <Property Name="designation_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="ac_flag" Type="bit" />
+        </EntityType>
+        <EntityType Name="m_employee_information">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_code" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="employee_title" Type="int" />
+          <Property Name="employee_gender" Type="int" />
+          <Property Name="employee_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="employye_designation" Type="int" Nullable="false" />
+          <Property Name="employee_department" Type="int" Nullable="false" />
+          <Property Name="employee_dob" Type="datetime" />
+          <Property Name="employee_joing_date" Type="datetime" />
+          <Property Name="employee_Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="employee_Address1" Type="nvarchar" MaxLength="500" />
+          <Property Name="employee_city" Type="nvarchar" MaxLength="50" />
+          <Property Name="employee_pan" Type="nvarchar" MaxLength="20" />
+          <Property Name="employee_adharchard" Type="nvarchar" MaxLength="50" />
+          <Property Name="employee_alternet_no" Type="nvarchar" MaxLength="15" />
+          <Property Name="employee_mobile" Type="nvarchar" MaxLength="15" />
+          <Property Name="employee_email_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="employee_bank_name" Type="int" />
+          <Property Name="employee_account_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="employee_ifsc_code" Type="nvarchar" MaxLength="15" />
+          <Property Name="employee_branch" Type="int" />
+          <Property Name="employee_photo" Type="nvarchar" MaxLength="50" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="active_flag" Type="bit" />
+          <Property Name="attr1" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr2" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr3" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr4" Type="int" />
+        </EntityType>
+        <EntityType Name="m_hospital_information">
+          <Key>
+            <PropertyRef Name="hospital_id" />
+          </Key>
+          <Property Name="hospital_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hospital_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="hospital_address" Type="nvarchar" MaxLength="200" />
+          <Property Name="hospital_email_address" Type="nvarchar" MaxLength="50" />
+          <Property Name="logo" Type="image" />
+          <Property Name="hospital_city" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_pan" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_gst_number" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_contact_number" Type="nvarchar" MaxLength="20" />
+          <Property Name="hospital_contact_number1" Type="nvarchar" MaxLength="20" />
+          <Property Name="hospital_web_site" Type="nvarchar" MaxLength="50" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="updated_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="m_item_information">
+          <Key>
+            <PropertyRef Name="item_id" />
+          </Key>
+          <Property Name="item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item_code" Type="nvarchar" MaxLength="7" />
+          <Property Name="item_type" Type="int" />
+          <Property Name="item_name" Type="nvarchar" MaxLength="150" />
+          <Property Name="item_manufaction_name" Type="nvarchar" MaxLength="150" />
+          <Property Name="item_pacinking" Type="int" />
+          <Property Name="item_use_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="item_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="item_start_date" Type="datetime" />
+          <Property Name="item_end_date" Type="datetime" />
+          <Property Name="item_first_unit" Type="int" />
+          <Property Name="item_second_unit" Type="int" />
+          <Property Name="item_conversion_first_factor" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="item_conversion_second_factor" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="item_is_stockebal" Type="bit" />
+          <Property Name="item_quality_check" Type="bit" />
+          <Property Name="item_return_policy" Type="bit" />
+          <Property Name="item_min_qty" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="item_max_qty" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="item_hsn_code" Type="nvarchar" MaxLength="20" />
+          <Property Name="item_po_type" Type="int" />
+          <Property Name="item_tax_apply" Type="bit" />
+          <Property Name="item_po_tax_group" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="item_sale_tax_group" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="activ_flag" Type="bit" />
+          <Property Name="attr1" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr2" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr3" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr4" Type="int" />
+          <Property Name="attr5" Type="int" />
+          <Property Name="attr6" Type="int" />
+        </EntityType>
+        <EntityType Name="m_material_type_infromation">
+          <Key>
+            <PropertyRef Name="material_type_id" />
+          </Key>
+          <Property Name="material_type_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="material_type" Type="nvarchar" MaxLength="100" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="updated_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="m_unit_information">
+          <Key>
+            <PropertyRef Name="unit_id" />
+          </Key>
+          <Property Name="unit_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unit_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="updated_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="m_user_Login_information">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="15" />
+          <Property Name="user_password" Type="nvarchar" MaxLength="8" />
+          <Property Name="user_confirm_password" Type="nvarchar" MaxLength="8" />
+          <Property Name="Employee_id" Type="int" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_by" Type="int" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="attr1" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr2" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr3" Type="nvarchar" MaxLength="50" />
+          <Property Name="attr4" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Db_Hospital_ManagmentModelStoreContainer">
+          <EntitySet Name="a_m_lookup_hedar" EntityType="Self.a_m_lookup_hedar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="a_m_lookup_line" EntityType="Self.a_m_lookup_line" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_department_information" EntityType="Self.m_department_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_designation_information" EntityType="Self.m_designation_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_employee_information" EntityType="Self.m_employee_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_hospital_information" EntityType="Self.m_hospital_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_item_information" EntityType="Self.m_item_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_material_type_infromation" EntityType="Self.m_material_type_infromation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_unit_information" EntityType="Self.m_unit_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_user_Login_information" EntityType="Self.m_user_Login_information" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Db_Hospital_ManagmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Db_Hospital_ManagmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="m_department_information" EntityType="Db_Hospital_ManagmentModel.m_department_information" />
+          <EntitySet Name="m_designation_information" EntityType="Db_Hospital_ManagmentModel.m_designation_information" />
+          <EntitySet Name="m_employee_information" EntityType="Db_Hospital_ManagmentModel.m_employee_information" />
+          <EntitySet Name="a_m_lookup_hedar" EntityType="Db_Hospital_ManagmentModel.a_m_lookup_hedar" />
+          <EntitySet Name="a_m_lookup_line" EntityType="Db_Hospital_ManagmentModel.a_m_lookup_line" />
+          <EntitySet Name="m_user_Login_information" EntityType="Db_Hospital_ManagmentModel.m_user_Login_information" />
+          <EntitySet Name="m_hospital_information" EntityType="Db_Hospital_ManagmentModel.m_hospital_information" />
+          <EntitySet Name="m_material_type_infromation" EntityType="Db_Hospital_ManagmentModel.m_material_type_infromation" />
+          <EntitySet Name="m_unit_information" EntityType="Db_Hospital_ManagmentModel.m_unit_information" />
+          <EntitySet Name="m_item_information" EntityType="Db_Hospital_ManagmentModel.m_item_information" />
+        </EntityContainer>
+        <EntityType Name="m_department_information">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department_start_date" Type="DateTime" Precision="3" />
+          <Property Name="department_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deparment_address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="deparment_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_id" Type="Int64" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="m_designation_information">
+          <Key>
+            <PropertyRef Name="designation_id" />
+          </Key>
+          <Property Name="designation_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="designation_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="designation_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="designation_qualification" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="designation_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="ac_flag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="m_employee_information">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employee_code" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="employee_title" Type="Int32" />
+          <Property Name="employee_gender" Type="Int32" />
+          <Property Name="employee_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="employye_designation" Type="Int32" Nullable="false" />
+          <Property Name="employee_department" Type="Int32" Nullable="false" />
+          <Property Name="employee_dob" Type="DateTime" Precision="3" />
+          <Property Name="employee_joing_date" Type="DateTime" Precision="3" />
+          <Property Name="employee_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="employee_Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="employee_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employee_pan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="employee_adharchard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employee_alternet_no" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="employee_mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="employee_email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employee_bank_name" Type="Int32" />
+          <Property Name="employee_account_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employee_ifsc_code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="employee_branch" Type="Int32" />
+          <Property Name="employee_photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="active_flag" Type="Boolean" />
+          <Property Name="attr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr4" Type="Int32" />
+        </EntityType>
+        <EntityType Name="a_m_lookup_hedar">
+          <Key>
+            <PropertyRef Name="lookup_id" />
+          </Key>
+          <Property Name="lookup_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_id" Type="Int32" />
+          <Property Name="global_id" Type="Int32" />
+          <Property Name="lookup_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lookup_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="active_flag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="a_m_lookup_line">
+          <Key>
+            <PropertyRef Name="line_id" />
+          </Key>
+          <Property Name="line_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_id" Type="Int32" />
+          <Property Name="gloabl_id" Type="Int32" />
+          <Property Name="lookup_id" Type="Int32" />
+          <Property Name="line_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="line_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="m_user_Login_information">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="user_password" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="user_confirm_password" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_id" Type="Int32" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="attr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="m_hospital_information">
+          <Key>
+            <PropertyRef Name="hospital_id" />
+          </Key>
+          <Property Name="hospital_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hospital_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_email_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="hospital_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_gst_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_contact_number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_contact_number1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_web_site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="m_material_type_infromation">
+          <Key>
+            <PropertyRef Name="material_type_id" />
+          </Key>
+          <Property Name="material_type_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="material_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="m_unit_information">
+          <Key>
+            <PropertyRef Name="unit_id" />
+          </Key>
+          <Property Name="unit_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unit_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="m_item_information">
+          <Key>
+            <PropertyRef Name="item_id" />
+          </Key>
+          <Property Name="item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item_code" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="item_type" Type="Int32" />
+          <Property Name="item_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="item_manufaction_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="item_pacinking" Type="Int32" />
+          <Property Name="item_use_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="item_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="item_start_date" Type="DateTime" Precision="3" />
+          <Property Name="item_end_date" Type="DateTime" Precision="3" />
+          <Property Name="item_first_unit" Type="Int32" />
+          <Property Name="item_second_unit" Type="Int32" />
+          <Property Name="item_conversion_first_factor" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="item_conversion_second_factor" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="item_is_stockebal" Type="Boolean" />
+          <Property Name="item_quality_check" Type="Boolean" />
+          <Property Name="item_return_policy" Type="Boolean" />
+          <Property Name="item_min_qty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="item_max_qty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="item_hsn_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="item_po_type" Type="Int32" />
+          <Property Name="item_tax_apply" Type="Boolean" />
+          <Property Name="item_po_tax_group" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="item_sale_tax_group" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_by" Type="Int32" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="activ_flag" Type="Boolean" />
+          <Property Name="attr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attr4" Type="Int32" />
+          <Property Name="attr5" Type="Int32" />
+          <Property Name="attr6" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Db_Hospital_ManagmentModelStoreContainer" CdmEntityContainer="Db_Hospital_ManagmentEntities">
+          <EntitySetMapping Name="m_department_information">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_department_information">
+              <MappingFragment StoreEntitySet="m_department_information">
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="hospital_id" ColumnName="hospital_id" />
+                <ScalarProperty Name="deparment_description" ColumnName="deparment_description" />
+                <ScalarProperty Name="deparment_address" ColumnName="deparment_address" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="department_code" ColumnName="department_code" />
+                <ScalarProperty Name="department_start_date" ColumnName="department_start_date" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_designation_information">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_designation_information">
+              <MappingFragment StoreEntitySet="m_designation_information">
+                <ScalarProperty Name="ac_flag" ColumnName="ac_flag" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="designation_description" ColumnName="designation_description" />
+                <ScalarProperty Name="designation_qualification" ColumnName="designation_qualification" />
+                <ScalarProperty Name="designation_name" ColumnName="designation_name" />
+                <ScalarProperty Name="designation_code" ColumnName="designation_code" />
+                <ScalarProperty Name="designation_id" ColumnName="designation_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_employee_information">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_employee_information">
+              <MappingFragment StoreEntitySet="m_employee_information">
+                <ScalarProperty Name="attr4" ColumnName="attr4" />
+                <ScalarProperty Name="attr3" ColumnName="attr3" />
+                <ScalarProperty Name="attr2" ColumnName="attr2" />
+                <ScalarProperty Name="attr1" ColumnName="attr1" />
+                <ScalarProperty Name="active_flag" ColumnName="active_flag" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="employee_photo" ColumnName="employee_photo" />
+                <ScalarProperty Name="employee_branch" ColumnName="employee_branch" />
+                <ScalarProperty Name="employee_ifsc_code" ColumnName="employee_ifsc_code" />
+                <ScalarProperty Name="employee_account_no" ColumnName="employee_account_no" />
+                <ScalarProperty Name="employee_bank_name" ColumnName="employee_bank_name" />
+                <ScalarProperty Name="employee_email_id" ColumnName="employee_email_id" />
+                <ScalarProperty Name="employee_mobile" ColumnName="employee_mobile" />
+                <ScalarProperty Name="employee_alternet_no" ColumnName="employee_alternet_no" />
+                <ScalarProperty Name="employee_adharchard" ColumnName="employee_adharchard" />
+                <ScalarProperty Name="employee_pan" ColumnName="employee_pan" />
+                <ScalarProperty Name="employee_city" ColumnName="employee_city" />
+                <ScalarProperty Name="employee_Address1" ColumnName="employee_Address1" />
+                <ScalarProperty Name="employee_Address" ColumnName="employee_Address" />
+                <ScalarProperty Name="employee_joing_date" ColumnName="employee_joing_date" />
+                <ScalarProperty Name="employee_dob" ColumnName="employee_dob" />
+                <ScalarProperty Name="employee_department" ColumnName="employee_department" />
+                <ScalarProperty Name="employye_designation" ColumnName="employye_designation" />
+                <ScalarProperty Name="employee_name" ColumnName="employee_name" />
+                <ScalarProperty Name="employee_gender" ColumnName="employee_gender" />
+                <ScalarProperty Name="employee_title" ColumnName="employee_title" />
+                <ScalarProperty Name="employee_code" ColumnName="employee_code" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="a_m_lookup_hedar">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.a_m_lookup_hedar">
+              <MappingFragment StoreEntitySet="a_m_lookup_hedar">
+                <ScalarProperty Name="active_flag" ColumnName="active_flag" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="lookup_description" ColumnName="lookup_description" />
+                <ScalarProperty Name="lookup_name" ColumnName="lookup_name" />
+                <ScalarProperty Name="global_id" ColumnName="global_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="lookup_id" ColumnName="lookup_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="a_m_lookup_line">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.a_m_lookup_line">
+              <MappingFragment StoreEntitySet="a_m_lookup_line">
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="line_description" ColumnName="line_description" />
+                <ScalarProperty Name="line_name" ColumnName="line_name" />
+                <ScalarProperty Name="lookup_id" ColumnName="lookup_id" />
+                <ScalarProperty Name="gloabl_id" ColumnName="gloabl_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="line_id" ColumnName="line_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_user_Login_information">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_user_Login_information">
+              <MappingFragment StoreEntitySet="m_user_Login_information">
+                <ScalarProperty Name="attr4" ColumnName="attr4" />
+                <ScalarProperty Name="attr3" ColumnName="attr3" />
+                <ScalarProperty Name="attr2" ColumnName="attr2" />
+                <ScalarProperty Name="attr1" ColumnName="attr1" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+                <ScalarProperty Name="user_confirm_password" ColumnName="user_confirm_password" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_hospital_information">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_hospital_information">
+              <MappingFragment StoreEntitySet="m_hospital_information">
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="hospital_web_site" ColumnName="hospital_web_site" />
+                <ScalarProperty Name="hospital_contact_number1" ColumnName="hospital_contact_number1" />
+                <ScalarProperty Name="hospital_contact_number" ColumnName="hospital_contact_number" />
+                <ScalarProperty Name="hospital_gst_number" ColumnName="hospital_gst_number" />
+                <ScalarProperty Name="hospital_pan" ColumnName="hospital_pan" />
+                <ScalarProperty Name="hospital_city" ColumnName="hospital_city" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="hospital_email_address" ColumnName="hospital_email_address" />
+                <ScalarProperty Name="hospital_address" ColumnName="hospital_address" />
+                <ScalarProperty Name="hospital_name" ColumnName="hospital_name" />
+                <ScalarProperty Name="hospital_id" ColumnName="hospital_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_material_type_infromation">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_material_type_infromation">
+              <MappingFragment StoreEntitySet="m_material_type_infromation">
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="material_type" ColumnName="material_type" />
+                <ScalarProperty Name="material_type_id" ColumnName="material_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_unit_information">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_unit_information">
+              <MappingFragment StoreEntitySet="m_unit_information">
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="Unit_name" ColumnName="Unit_name" />
+                <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_item_information">
+            <EntityTypeMapping TypeName="Db_Hospital_ManagmentModel.m_item_information">
+              <MappingFragment StoreEntitySet="m_item_information">
+                <ScalarProperty Name="attr6" ColumnName="attr6" />
+                <ScalarProperty Name="attr5" ColumnName="attr5" />
+                <ScalarProperty Name="attr4" ColumnName="attr4" />
+                <ScalarProperty Name="attr3" ColumnName="attr3" />
+                <ScalarProperty Name="attr2" ColumnName="attr2" />
+                <ScalarProperty Name="attr1" ColumnName="attr1" />
+                <ScalarProperty Name="activ_flag" ColumnName="activ_flag" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="item_sale_tax_group" ColumnName="item_sale_tax_group" />
+                <ScalarProperty Name="item_po_tax_group" ColumnName="item_po_tax_group" />
+                <ScalarProperty Name="item_tax_apply" ColumnName="item_tax_apply" />
+                <ScalarProperty Name="item_po_type" ColumnName="item_po_type" />
+                <ScalarProperty Name="item_hsn_code" ColumnName="item_hsn_code" />
+                <ScalarProperty Name="item_max_qty" ColumnName="item_max_qty" />
+                <ScalarProperty Name="item_min_qty" ColumnName="item_min_qty" />
+                <ScalarProperty Name="item_return_policy" ColumnName="item_return_policy" />
+                <ScalarProperty Name="item_quality_check" ColumnName="item_quality_check" />
+                <ScalarProperty Name="item_is_stockebal" ColumnName="item_is_stockebal" />
+                <ScalarProperty Name="item_conversion_second_factor" ColumnName="item_conversion_second_factor" />
+                <ScalarProperty Name="item_conversion_first_factor" ColumnName="item_conversion_first_factor" />
+                <ScalarProperty Name="item_second_unit" ColumnName="item_second_unit" />
+                <ScalarProperty Name="item_first_unit" ColumnName="item_first_unit" />
+                <ScalarProperty Name="item_end_date" ColumnName="item_end_date" />
+                <ScalarProperty Name="item_start_date" ColumnName="item_start_date" />
+                <ScalarProperty Name="item_description" ColumnName="item_description" />
+                <ScalarProperty Name="item_use_name" ColumnName="item_use_name" />
+                <ScalarProperty Name="item_pacinking" ColumnName="item_pacinking" />
+                <ScalarProperty Name="item_manufaction_name" ColumnName="item_manufaction_name" />
+                <ScalarProperty Name="item_name" ColumnName="item_name" />
+                <ScalarProperty Name="item_type" ColumnName="item_type" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="item_id" ColumnName="item_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

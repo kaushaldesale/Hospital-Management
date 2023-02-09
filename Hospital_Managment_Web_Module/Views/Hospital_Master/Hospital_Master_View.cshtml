@@ -1,0 +1,69 @@
+﻿@model Hospital_Managment_Model_Layer.Master_Model.Hospital_Information_Model
+<html lang="en">
+<body class="bg-primary">
+    @using (Html.BeginForm("SaveOrUpdate", "Hospital_Master", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-row ">
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Organization Name<small style="color:red">*</small></label>
+                @Html.HiddenFor(m => m.hospital_id)
+                @Html.TextBoxFor(m => m.hospital_name, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+                @Html.ValidationMessageFor(m => m.hospital_name, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Contact 1 <small style="color:red">*</small></label>
+                @Html.TextBoxFor(m => m.hospital_contact_number, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+                @Html.ValidationMessageFor(m => m.hospital_contact_number, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Contact 2 </label>
+                @Html.TextBoxFor(m => m.hospital_contact_number, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Web Url</label>
+                @Html.TextBoxFor(m => m.hospital_web_site, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Email Id</label>
+                @Html.TextBoxFor(m => m.hospital_email_address, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">GST No</label>
+                @Html.TextBoxFor(m => m.hospital_gst_number, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1">Address <small style="color:red">*</small></label>
+                @Html.TextAreaFor(m => m.hospital_address, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", tabindex = "2", maxlength = 250 })
+                @Html.ValidationMessageFor(m => m.hospital_address, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+
+    </div>
+        <div class="form-group mt-4 mb-0 form-actions">
+            <button type="submit" class="btn btn-dark" id="btnsubmit"> Save Record </button>
+        </div>
+    }
+
+</body>
+
+</html>
+
+
+
+

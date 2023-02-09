@@ -1,0 +1,53 @@
+﻿@model Hospital_Managment_Model_Layer.Master_Model.User_Creation_Infromation_Model
+
+<html lang="en">
+<body class="bg-primary">
+    @using (Html.BeginForm("SaveOrUpdate", "User_Master", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-row ">
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Employee Name<small style="color:red">*</small></label>
+                @Html.HiddenFor(m => m.user_id)
+                @Html.DropDownListFor(m => m.Employee_id, new SelectList(ViewBag.Employee_id, "Value", "Text"), new { @class = "form-control form-control-sm sm-2 border border-dark disabled class_suppler_id", id = "id_suppler_id", tabindex = "1", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(m => m.Employee_id, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">User Name  <small style="color:red">*</small></label>
+                @Html.TextBoxFor(m => m.user_name, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "2" })
+                @Html.ValidationMessageFor(m => m.user_name, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Password  <small style="color:red">*</small></label>
+                @Html.TextBoxFor(m => m.user_password, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "3", type = "password" })
+                @Html.ValidationMessageFor(m => m.user_password, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label class="small mb-1 ">Confirm Password <small style="color:red">*</small>  </label>
+                @Html.TextBoxFor(m => m.user_confirm_password, new { @class = "form-control form-control-sm sm-2 border border-dark disabled", autofocus = "autofocus", tabindex = "4",type="password" })
+                @Html.ValidationMessageFor(m => m.user_confirm_password, "", new { @class = "text-danger  " })
+            </div>
+        </div>
+    </div>
+        <div class="form-group mt-4 mb-0 form-actions">
+            <button type="submit" class="btn btn-dark" id="btnsubmit"> Save Record </button>
+        </div>
+    }
+
+</body>
+
+</html>
+
+
+
+
+
