@@ -6,6 +6,7 @@
 
         public string Genrate_Code_For_User_View(string _docType, string _number)
         {
+            //this is demo
             string _return = string.Empty;
             if (_number.ToString().Length == 1)
             {
