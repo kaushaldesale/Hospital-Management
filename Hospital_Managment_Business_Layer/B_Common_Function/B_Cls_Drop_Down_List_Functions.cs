@@ -73,9 +73,7 @@ namespace Hospital_Managment_Business_Layer.B_Common_Function
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw ex;
+            catch{    
             }
             finally
             {
