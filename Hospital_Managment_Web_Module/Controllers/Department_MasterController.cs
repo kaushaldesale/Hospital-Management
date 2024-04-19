@@ -4,7 +4,9 @@ using Hospital_Managment_Model_Layer.Master_Model;
 using System;
 using System.Web.Mvc;
 namespace Hospital_Managment_Web_Module.Controllers
-{
+{a
+
+//Added By kaushal Desale
     public class Department_MasterController : Controller
     {
         #region
